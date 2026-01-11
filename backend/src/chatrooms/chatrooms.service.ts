@@ -12,10 +12,10 @@ export class ChatRoomsService {
 
   create(name: string) {
     const room = this.repo.create({ name });
-    return this.repo.save(room);
+    return this.repo.save(room);  // Saves to database
   }
 
   findAll() {
-    return this.repo.find();
+    return this.repo.find();  // Returns all chatrooms
   }
 }

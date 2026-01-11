@@ -20,9 +20,27 @@ const MessageInput: React.FC<Props> = ({ onSend }) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Type a message"
-        style={{ flex: 1, padding: '0.5rem' }}
+        style={{
+          flex: 1,
+          padding: '0.5rem 0.75rem',
+          borderRadius: '5px 0 0 5px',
+          border: '1px solid #ccc',
+          fontSize: '0.9rem',
+        }}
       />
-      <button onClick={handleSend} style={{ padding: '0.5rem 1rem' }}>
+      <button
+        onClick={handleSend}
+        style={{
+          padding: '0.5rem 1rem',
+          minWidth: '60px',
+          backgroundColor: '#1890ff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '0 5px 5px 0',
+          cursor: 'pointer',
+          fontSize: '0.9rem',
+        }}
+      >
         Send
       </button>
     </div>

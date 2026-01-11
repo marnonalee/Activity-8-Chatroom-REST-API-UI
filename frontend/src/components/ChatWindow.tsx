@@ -9,7 +9,7 @@ interface Message {
 
 interface Props {
   messages: Message[];
-  currentUser: string; // Pass the current username here
+  currentUser: string;
 }
 
 const ChatWindow: React.FC<Props> = ({ messages, currentUser }) => {

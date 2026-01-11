@@ -7,22 +7,32 @@ interface ChatRoom {
 
 interface Props {
   chatrooms: ChatRoom[];
+  selectedRoom: number | null;
   onSelect: (id: number) => void;
 }
 
-const ChatRoomList: React.FC<Props> = ({ chatrooms, onSelect }) => {
+const ChatRoomList: React.FC<Props> = ({ chatrooms, selectedRoom, onSelect }) => {
   return (
-    <div style={{ width: '200px', borderRight: '1px solid #ccc', padding: '1rem' }}>
-      <h3>Chat Rooms</h3>
-      {chatrooms.map((room) => (
-        <div
-          key={room.id}
-          onClick={() => onSelect(room.id)}
-          style={{ cursor: 'pointer', padding: '0.5rem' }}
-        >
-          {room.name}
-        </div>
-      ))}
+    <div>
+      {chatrooms.map((room) => {
+        const isActive = room.id === selectedRoom;
+        return (
+          <div
+            key={room.id}
+            onClick={() => onSelect(room.id)}
+            style={{
+              cursor: 'pointer',
+              padding: '0.5rem',
+              borderRadius: '5px',
+              backgroundColor: isActive ? '#1890ff' : 'transparent',
+              color: isActive ? 'white' : 'black',
+              marginBottom: '0.25rem',
+            }}
+          >
+            {room.name}
+          </div>
+        );
+      })}
     </div>
   );
 };
